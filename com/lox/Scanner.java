@@ -144,6 +144,10 @@ public class Scanner {
         addToken(STRING, value);
     }
 
+    /**
+     * check char at current position matches expected
+     * if matches increment current position
+     */
     private boolean match(char expected) {
         if (isAtEnd()) return false;
         if (source.charAt(current) != expected) return false;
@@ -152,11 +156,17 @@ public class Scanner {
         return true;
     }
 
+    /**
+     * return char at current position
+     */
     private char peek() {
         if (isAtEnd()) return '\0';
         return source.charAt(current);
     }
 
+    /**
+     * return char at current position + 1
+     */
     private char peekNext() {
         if (current + 1 >= source.length()) return '\0';
         return source.charAt(current + 1);
@@ -176,10 +186,17 @@ public class Scanner {
         return c >= '0' && c <= '9';
     }
 
+    /**
+     * current position is at end of file
+     */
     private boolean isAtEnd() {
         return current >= source.length();
     }
 
+    /**
+     * return char at current position
+     * increments current
+     */
     private char advance() {
         return source.charAt(current++);
     }
